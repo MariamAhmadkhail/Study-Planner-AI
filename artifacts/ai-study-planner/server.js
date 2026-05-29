@@ -1,17 +1,17 @@
-const express = require('express');
-const path = require('path');
-
+const express = require("express");
+const path = require("path");
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+// Serve static files from the "public" folder
+app.use(express.static("public"));
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'index.html'));
+// Route for the homepage
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "views", "index.html"));
 });
 
+// Start the server
 app.listen(PORT, () => {
-  console.log(`AI Study Planner running on port ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
