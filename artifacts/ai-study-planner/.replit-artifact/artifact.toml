@@ -15,7 +15,7 @@ paths = [ "/" ]
 localPort = 19847
 
 [services.development]
-run = "node /home/runner/workspace/artifacts/ai-study-planner/server.js"
+run = "PORT=19847 node /home/runner/workspace/artifacts/ai-study-planner/server.js"
 
 [services.env]
 PORT = "19847"
