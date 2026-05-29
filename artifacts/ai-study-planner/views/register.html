@@ -9,12 +9,47 @@
   <body>
     <nav>
       <h1>AI Study Planner</h1>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/register">Register</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/create-task">Create Task</a></li>
+        <li><a href="/edit-task">Edit Task</a></li>
+        <li><a href="/profile">Profile</a></li>
+        <li><a href="/ai-planner">AI Planner</a></li>
+        <li><a href="/admin">Admin</a></li>
+        <li><a href="/checkpoints">Checkpoints</a></li>
+      </ul>
     </nav>
     <div class="container">
       <div class="card">
         <h2>Register</h2>
-        <p>Create an account to start planning your study sessions.</p>
-        <a href="/"><button>Go to Home</button></a>
+        <form action="/register" method="POST">
+          <div class="form-group">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required />
+          </div>
+          <div class="form-group">
+            <label for="confirm-password">Confirm Password:</label>
+            <input
+              type="password"
+              id="confirm-password"
+              name="confirm-password"
+              required
+            />
+          </div>
+          <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="/login">Login here</a>.</p>
       </div>
     </div>
   </body>

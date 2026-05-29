@@ -9,12 +9,50 @@
   <body>
     <nav>
       <h1>AI Study Planner</h1>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/register">Register</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/create-task">Create Task</a></li>
+        <li><a href="/edit-task">Edit Task</a></li>
+        <li><a href="/profile">Profile</a></li>
+        <li><a href="/ai-planner">AI Planner</a></li>
+        <li><a href="/admin">Admin</a></li>
+        <li><a href="/checkpoints">Checkpoints</a></li>
+      </ul>
     </nav>
     <div class="container">
       <div class="card">
         <h2>Create Task</h2>
-        <p>Add a new task to your study plan.</p>
-        <a href="/"><button>Go to Home</button></a>
+        <form action="/create-task" method="POST">
+          <div class="form-group">
+            <label for="title">Task Title:</label>
+            <input type="text" id="title" name="title" required />
+          </div>
+          <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea
+              id="description"
+              name="description"
+              rows="3"
+              required
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="due-date">Due Date:</label>
+            <input type="date" id="due-date" name="due-date" required />
+          </div>
+          <div class="form-group">
+            <label for="priority">Priority:</label>
+            <select id="priority" name="priority" required>
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+          <button type="submit">Create Task</button>
+        </form>
       </div>
     </div>
   </body>

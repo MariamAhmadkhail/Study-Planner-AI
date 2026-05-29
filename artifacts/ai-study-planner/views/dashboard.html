@@ -9,12 +9,30 @@
   <body>
     <nav>
       <h1>AI Study Planner</h1>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/register">Register</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/create-task">Create Task</a></li>
+        <li><a href="/edit-task">Edit Task</a></li>
+        <li><a href="/profile">Profile</a></li>
+        <li><a href="/ai-planner">AI Planner</a></li>
+        <li><a href="/admin">Admin</a></li>
+        <li><a href="/checkpoints">Checkpoints</a></li>
+      </ul>
     </nav>
     <div class="container">
       <div class="card">
         <h2>Dashboard</h2>
-        <p>View and manage your study tasks here.</p>
-        <a href="/"><button>Go to Home</button></a>
+        <div class="ta">
+          <h3>Your Tasks</h3>
+          <p>
+            No tasks yet. <a href="/create-task">Create a task</a> to get
+            started!
+          </p>
+          <!-- Task list will be dynamically populated later -->
+        </div>
       </div>
     </div>
   </body>
