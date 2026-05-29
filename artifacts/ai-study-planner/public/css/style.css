@@ -38,3 +38,29 @@ button {
 button:hover {
   background: #444;
 }
+
+/* Navigation Menu Styles */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  background: #333;
+}
+
+nav ul li {
+  margin: 0 10px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  display: inline-block;
+}
+
+nav ul li a:hover {
+  background: #555;
+  border-radius: 5px;
+}
