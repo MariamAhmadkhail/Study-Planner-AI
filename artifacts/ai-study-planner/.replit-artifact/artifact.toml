@@ -1,0 +1,21 @@
+kind = "web"
+previewPath = "/"
+title = "AI Study Planner"
+version = "1.0.0"
+id = "artifacts/ai-study-planner"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19847
+
+[services.development]
+run = "node /home/runner/workspace/artifacts/ai-study-planner/server.js"
+
+[services.env]
+PORT = "19847"
