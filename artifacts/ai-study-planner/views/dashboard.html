@@ -25,15 +25,53 @@
     <div class="container">
       <div class="card">
         <h2>Dashboard</h2>
-        <div class="ta">
+        <div class="task-list">
           <h3>Your Tasks</h3>
-          <p>
-            No tasks yet. <a href="/create-task">Create a task</a> to get
-            started!
-          </p>
-          <!-- Task list will be dynamically populated later -->
+          <div id="tasks-container">
+            <!-- Tasks will be dynamically inserted here -->
+            <p>
+              No tasks yet. <a href="/create-task">Create a task</a> to get
+              started!
+            </p>
+          </div>
         </div>
       </div>
     </div>
+    <script>
+      // Simulate fetching tasks (for now, we'll use a mock array)
+      // In a real app, you'd fetch this from the server using fetch() or AJAX
+      const mockTasks = [
+        {
+          title: "Complete Math Homework",
+          description: "Finish algebra problems",
+          dueDate: "2026-06-01",
+          priority: "High",
+        },
+        {
+          title: "Study for Science Test",
+          description: "Review chapters 1-3",
+          dueDate: "2026-06-05",
+          priority: "Medium",
+        },
+      ];
+
+      // Display tasks on the page
+      const tasksContainer = document.getElementById("tasks-container");
+      if (mockTasks.length > 0) {
+        tasksContainer.innerHTML = ""; // Clear the "No tasks" message
+        mockTasks.forEach((task) => {
+          const taskElement = document.createElement("div");
+          taskElement.className = "task";
+          taskElement.innerHTML = `
+            <h4>${task.title}</h4>
+            <p><strong>Description:</strong> ${task.description}</p>
+            <p><strong>Due Date:</strong> ${task.dueDate}</p>
+            <p><strong>Priority:</strong> ${task.priority}</p>
+            <hr />
+          `;
+          tasksContainer.appendChild(taskElement);
+        });
+      }
+    </script>
   </body>
 </html>

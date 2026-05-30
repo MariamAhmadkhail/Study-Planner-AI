@@ -1,17 +1,37 @@
 const express = require("express");
 const path = require("path");
+const fs = require("fs");
 const app = express();
-const PORT = process.env.PORT || 3000; // <-- Add this lineess.env.PORT || 19847;
+const PORT = process.env.PORT || 3000;
 
-// Serve static files from the "public" folder
+// Middleware
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-// Route for the homepage
+// Path to users.json
+const usersFilePath = path.join(__dirname, "data", "users.json");
+
+// Helper function to read users from JSON file
+function readUsers() {
+  try {
+    const data = fs.readFileSync(usersFilePath, "utf8");
+    return JSON.parse(data);
+  } catch (err) {
+    // If file doesn't exist, return empty array
+    return [];
+  }
+}
+
+// Helper function to write users to JSON file
+function writeUsers(users) {
+  fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
+}
+
+// GET routes (existing)
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "views", "index.html"));
 });
 
-// New routes for Checkpoint #02
 app.get("/register", (req, res) => {
   res.sendFile(path.join(__dirname, "views", "register.html"));
 });
@@ -46,6 +66,44 @@ app.get("/admin", (req, res) => {
 
 app.get("/checkpoints", (req, res) => {
   res.sendFile(path.join(__dirname, "views", "checkpoints.html"));
+});
+
+// POST route for registration (Checkpoint #04)
+app.post("/register", (req, res) => {
+  const { name, email, password, confirmPassword, grade } = req.body;
+
+  // Basic validation
+  if (!name || !email || !password || !confirmPassword || !grade) {
+    return res.status(400).send("All fields are required.");
+  }
+
+  if (password !== confirmPassword) {
+    return res.status(400).send("Passwords do not match.");
+  }
+
+  // Read existing users
+  const users = readUsers();
+
+  // Check if user already exists
+  if (users.some((user) => user.email === email)) {
+    return res.status(400).send("User already exists.");
+  }
+
+  // Create new user with all required fields
+  const newUser = {
+    id: `user-${Date.now()}`,
+    name,
+    email,
+    password,
+    grade,
+    role: "user",
+  };
+
+  // Add new user to the array
+  users.push(newUser);
+  writeUsers(users);
+
+  res.redirect("/login");
 });
 
 // Start the server

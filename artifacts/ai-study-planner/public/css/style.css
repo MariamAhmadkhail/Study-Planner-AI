@@ -94,6 +94,26 @@ button[type="submit"] {
 }
 
 /* Task List Styles */
-.ta {
+.task-list {
   margin-top: 20px;
 }
+/* Task List Styles */
+.task {
+  background: #f9f9f9;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border-left: 4px solid #222;
+}
+
+.task h4 {
+  margin-top: 0;
+  color: #222;
+}
+
+.task hr {
+  margin: 10px 0;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+

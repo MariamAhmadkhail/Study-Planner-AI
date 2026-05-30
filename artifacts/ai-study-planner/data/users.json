@@ -1,1 +1,34 @@
-[]
+[
+  {
+    "id": "user-001",
+    "name": "Mariam AhmadkhaiL",
+    "email": "mariam@gmail.com",
+    "password": "password123",
+    "grade": "12",
+    "role": "user"
+  },
+  {
+    "id": "user-002",
+    "name": "John Doe",
+    "email": "john@gmail.com",
+    "password": "password123",
+    "grade": "11",
+    "role": "user"
+  },
+  {
+    "id": "admin-001",
+    "name": "Admin User",
+    "email": "admin@gmail.com",
+    "password": "admin123",
+    "grade": "N/A",
+    "role": "admin"
+  },
+  {
+    "id": "user-1780181569361",
+    "name": "hi",
+    "email": "hi@gmail.com",
+    "password": "1",
+    "grade": "9",
+    "role": "user"
+  }
+]
