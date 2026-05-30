@@ -106,6 +106,30 @@ app.post("/register", (req, res) => {
   res.redirect("/login");
 });
 
+// POST route for login (Checkpoint #05)
+app.post("/login", (req, res) => {
+  const { email, password } = req.body;
+
+  // Basic validation
+  if (!email || !password) {
+    return res.status(400).send("Email and password are required.");
+  }
+
+  // Read existing users
+  const users = readUsers();
+
+  // Check if user exists and password matches
+  const user = users.find(
+    (user) => user.email === email && user.password === password,
+  );
+  if (!user) {
+    return res.status(400).send("Invalid email or password.");
+  }
+
+  // Redirect to dashboard after successful login
+  res.redirect("/dashboard");
+});
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
