@@ -39,7 +39,6 @@
         <p>Don't have an account? <a href="/register">Register here</a>.</p>
       </div>
     </div>
-    <!-- Added script to store user ID after login -->
     <script>
       document
         .getElementById("loginForm")
@@ -58,7 +57,7 @@
             );
 
             if (user) {
-              // Store user ID in localStorage
+              // Store user ID and role in localStorage
               localStorage.setItem("userId", user.id);
               localStorage.setItem("userRole", user.role);
               // Submit the form to redirect to dashboard

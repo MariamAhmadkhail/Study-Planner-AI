@@ -5,7 +5,14 @@
     "email": "mariam@gmail.com",
     "password": "password123",
     "grade": "12",
-    "role": "user"
+    "role": "user",
+    "favoriteSubject": "Computer Science",
+    "weakestSubject": "Physics",
+    "studyHours": "3",
+    "learningStyle": "Hands-on",
+    "school": "Springfield High School",
+    "goal": "Get into a top CS university",
+    "preferredStudyTime": "Morning"
   },
   {
     "id": "user-002",
@@ -13,7 +20,14 @@
     "email": "john@gmail.com",
     "password": "password123",
     "grade": "11",
-    "role": "user"
+    "role": "user",
+    "favoriteSubject": "Biology",
+    "weakestSubject": "Math",
+    "studyHours": "2",
+    "learningStyle": "Visual",
+    "school": "Springfield High School",
+    "goal": "Become a doctor",
+    "preferredStudyTime": "Evening"
   },
   {
     "id": "admin-001",
@@ -21,7 +35,14 @@
     "email": "admin@gmail.com",
     "password": "admin123",
     "grade": "N/A",
-    "role": "admin"
+    "role": "admin",
+    "favoriteSubject": "N/A",
+    "weakestSubject": "N/A",
+    "studyHours": "N/A",
+    "learningStyle": "N/A",
+    "school": "N/A",
+    "goal": "Manage the app",
+    "preferredStudyTime": "N/A"
   },
   {
     "id": "user-1780191705650",
@@ -29,7 +50,14 @@
     "email": "hi@gmail.com",
     "password": "1",
     "grade": "9",
-    "role": "user"
+    "role": "user",
+    "favoriteSubject": "Art",
+    "weakestSubject": "Chemistry",
+    "studyHours": "1",
+    "learningStyle": "Auditory",
+    "school": "Springfield Middle School",
+    "goal": "Improve in Chemistry",
+    "preferredStudyTime": "Afternoon"
   },
   {
     "id": "user-1780191802062",
@@ -37,15 +65,29 @@
     "email": "amena@gmail.com",
     "password": "123",
     "grade": "10",
-    "role": "user"
+    "role": "user",
+    "favoriteSubject": "History",
+    "weakestSubject": "Math",
+    "studyHours": "2",
+    "learningStyle": "Reading",
+    "school": "Springfield High School",
+    "goal": "Pass all exams with A grades",
+    "preferredStudyTime": "Night"
   },
   {
     "id": "user-1780192921410",
     "name": "k",
     "email": "k@gmail.com",
-    "password": "3",
+    "password": "",
     "grade": "9",
-    "role": "user"
+    "role": "user",
+    "favoriteSubject": "Science",
+    "weakestSubject": "History",
+    "studyHours": "2",
+    "learningStyle": "Visual",
+    "school": "Springfield High School",
+    "goal": "Get an A in Math",
+    "preferredStudyTime": "Evening"
   },
   {
     "id": "user-1780192994454",
@@ -53,6 +95,28 @@
     "email": "p@gmail.com",
     "password": "10",
     "grade": "10",
-    "role": "user"
+    "role": "user",
+    "favoriteSubject": "Science",
+    "weakestSubject": "English",
+    "studyHours": "3",
+    "learningStyle": "Kinesthetic",
+    "school": "Springfield High School",
+    "goal": "Win the science fair",
+    "preferredStudyTime": "Morning"
+  },
+  {
+    "id": "user-1780194744934",
+    "name": "l",
+    "email": "l@gmail.com",
+    "password": "",
+    "grade": "12",
+    "role": "user",
+    "favoriteSubject": "Math",
+    "weakestSubject": "English",
+    "studyHours": "2",
+    "learningStyle": "Visual",
+    "school": "w",
+    "goal": "haver good grae",
+    "preferredStudyTime": "morning"
   }
 ]

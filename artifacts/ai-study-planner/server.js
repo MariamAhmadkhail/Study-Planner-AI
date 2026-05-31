@@ -8,8 +8,17 @@ const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use("/css", express.static("public/css"));
-app.use("/js", express.static("public/js")); // Added for profile.js
-app.use("/data", express.static("data")); // Added to serve users.json
+app.use("/js", express.static("public/js"));
+app.use("/data", express.static("data"));
+app.use(express.json()); // Parse JSON requests
+
+// Enable CORS for Replit
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  next();
+});
 
 // Path to users.json
 const usersFilePath = path.join(__dirname, "data", "users.json");
@@ -70,7 +79,7 @@ app.get("/checkpoints", (req, res) => {
   res.sendFile(path.join(__dirname, "views", "checkpoints.html"));
 });
 
-// POST route for registration (Checkpoint #04)
+// POST route for registration
 app.post("/register", (req, res) => {
   const { name, email, password, confirmPassword, grade } = req.body;
 
@@ -95,6 +104,13 @@ app.post("/register", (req, res) => {
     password,
     grade,
     role: "user",
+    favoriteSubject: "",
+    weakestSubject: "",
+    studyHours: "",
+    learningStyle: "",
+    school: "",
+    goal: "",
+    preferredStudyTime: "",
   };
 
   users.push(newUser);
@@ -103,7 +119,7 @@ app.post("/register", (req, res) => {
   res.redirect("/login");
 });
 
-// POST route for login (Checkpoint #05)
+// POST route for login
 app.post("/login", (req, res) => {
   const { email, password } = req.body;
 
@@ -121,6 +137,27 @@ app.post("/login", (req, res) => {
   }
 
   res.redirect("/dashboard");
+});
+
+// POST route to update user profile
+app.post("/update-profile", (req, res) => {
+  const updatedUser = req.body;
+  const users = readUsers();
+
+  // Find the index of the user to update
+  const userIndex = users.findIndex((u) => u.id === updatedUser.id);
+
+  if (userIndex === -1) {
+    return res.status(404).send("User not found.");
+  }
+
+  // Update the user data
+  users[userIndex] = { ...users[userIndex], ...updatedUser };
+
+  // Save the updated users back to users.json
+  writeUsers(users);
+
+  res.status(200).json({ success: true });
 });
 
 // Start the server

@@ -25,9 +25,53 @@
     <div class="container">
       <div class="card">
         <h2>Your Profile</h2>
-        <div id="profile-data">
-          <!-- User data will be inserted here by JavaScript -->
-        </div>
+        <form id="profileForm">
+          <div class="form-group">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="grade">Grade Level:</label>
+            <input type="text" id="grade" name="grade" required />
+          </div>
+          <div class="form-group">
+            <label for="favoriteSubject">Favorite Subject:</label>
+            <input type="text" id="favoriteSubject" name="favoriteSubject" />
+          </div>
+          <div class="form-group">
+            <label for="weakestSubject">Weakest Subject:</label>
+            <input type="text" id="weakestSubject" name="weakestSubject" />
+          </div>
+          <div class="form-group">
+            <label for="studyHours">Study Hours per Day:</label>
+            <input type="text" id="studyHours" name="studyHours" />
+          </div>
+          <div class="form-group">
+            <label for="learningStyle">Learning Style:</label>
+            <input type="text" id="learningStyle" name="learningStyle" />
+          </div>
+          <div class="form-group">
+            <label for="school">School Name:</label>
+            <input type="text" id="school" name="school" />
+          </div>
+          <div class="form-group">
+            <label for="goal">Academic Goal:</label>
+            <input type="text" id="goal" name="goal" />
+          </div>
+          <div class="form-group">
+            <label for="preferredStudyTime">Preferred Study Time:</label>
+            <input
+              type="text"
+              id="preferredStudyTime"
+              name="preferredStudyTime"
+            />
+          </div>
+          <button type="submit">Save Profile</button>
+        </form>
       </div>
     </div>
     <script src="/js/profile.js"></script>
