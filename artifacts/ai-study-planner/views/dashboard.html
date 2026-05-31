@@ -28,7 +28,6 @@
         <div class="task-list">
           <h3>Your Tasks</h3>
           <div id="tasks-container">
-            <!-- Tasks will be dynamically inserted here -->
             <p>
               No tasks yet. <a href="/create-task">Create a task</a> to get
               started!
@@ -38,8 +37,7 @@
       </div>
     </div>
     <script>
-      // Simulate fetching tasks (for now, we'll use a mock array)
-      // In a real app, you'd fetch this from the server using fetch() or AJAX
+      // Mock tasks (existing code)
       const mockTasks = [
         {
           title: "Complete Math Homework",
@@ -55,10 +53,9 @@
         },
       ];
 
-      // Display tasks on the page
       const tasksContainer = document.getElementById("tasks-container");
       if (mockTasks.length > 0) {
-        tasksContainer.innerHTML = ""; // Clear the "No tasks" message
+        tasksContainer.innerHTML = "";
         mockTasks.forEach((task) => {
           const taskElement = document.createElement("div");
           taskElement.className = "task";

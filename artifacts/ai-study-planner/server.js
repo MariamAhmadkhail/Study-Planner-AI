@@ -7,6 +7,9 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
+app.use("/css", express.static("public/css"));
+app.use("/js", express.static("public/js")); // Added for profile.js
+app.use("/data", express.static("data")); // Added to serve users.json
 
 // Path to users.json
 const usersFilePath = path.join(__dirname, "data", "users.json");
@@ -17,7 +20,6 @@ function readUsers() {
     const data = fs.readFileSync(usersFilePath, "utf8");
     return JSON.parse(data);
   } catch (err) {
-    // If file doesn't exist, return empty array
     return [];
   }
 }
@@ -27,7 +29,7 @@ function writeUsers(users) {
   fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
 }
 
-// GET routes (existing)
+// GET routes
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "views", "index.html"));
 });
@@ -72,7 +74,6 @@ app.get("/checkpoints", (req, res) => {
 app.post("/register", (req, res) => {
   const { name, email, password, confirmPassword, grade } = req.body;
 
-  // Basic validation
   if (!name || !email || !password || !confirmPassword || !grade) {
     return res.status(400).send("All fields are required.");
   }
@@ -81,15 +82,12 @@ app.post("/register", (req, res) => {
     return res.status(400).send("Passwords do not match.");
   }
 
-  // Read existing users
   const users = readUsers();
 
-  // Check if user already exists
   if (users.some((user) => user.email === email)) {
     return res.status(400).send("User already exists.");
   }
 
-  // Create new user with all required fields
   const newUser = {
     id: `user-${Date.now()}`,
     name,
@@ -99,7 +97,6 @@ app.post("/register", (req, res) => {
     role: "user",
   };
 
-  // Add new user to the array
   users.push(newUser);
   writeUsers(users);
 
@@ -110,23 +107,19 @@ app.post("/register", (req, res) => {
 app.post("/login", (req, res) => {
   const { email, password } = req.body;
 
-  // Basic validation
   if (!email || !password) {
     return res.status(400).send("Email and password are required.");
   }
 
-  // Read existing users
   const users = readUsers();
-
-  // Check if user exists and password matches
   const user = users.find(
     (user) => user.email === email && user.password === password,
   );
+
   if (!user) {
     return res.status(400).send("Invalid email or password.");
   }
 
-  // Redirect to dashboard after successful login
   res.redirect("/dashboard");
 });
 

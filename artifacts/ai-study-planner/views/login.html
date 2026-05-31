@@ -25,7 +25,7 @@
     <div class="container">
       <div class="card">
         <h2>Login</h2>
-        <form action="/login" method="POST">
+        <form id="loginForm" action="/login" method="POST">
           <div class="form-group">
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required />
@@ -39,5 +39,38 @@
         <p>Don't have an account? <a href="/register">Register here</a>.</p>
       </div>
     </div>
+    <!-- Added script to store user ID after login -->
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const formData = new FormData(e.target);
+          const email = formData.get("email");
+          const password = formData.get("password");
+
+          try {
+            // Fetch user data to find the matching user
+            const response = await fetch("/data/users.json");
+            const users = await response.json();
+            const user = users.find(
+              (u) => u.email === email && u.password === password,
+            );
+
+            if (user) {
+              // Store user ID in localStorage
+              localStorage.setItem("userId", user.id);
+              localStorage.setItem("userRole", user.role);
+              // Submit the form to redirect to dashboard
+              e.target.submit();
+            } else {
+              alert("Invalid email or password.");
+            }
+          } catch (error) {
+            console.error("Error:", error);
+            alert("Failed to login. Please try again.");
+          }
+        });
+    </script>
   </body>
 </html>

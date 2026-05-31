@@ -24,11 +24,35 @@
     "role": "admin"
   },
   {
-    "id": "user-1780181569361",
+    "id": "user-1780191705650",
     "name": "hi",
     "email": "hi@gmail.com",
     "password": "1",
     "grade": "9",
+    "role": "user"
+  },
+  {
+    "id": "user-1780191802062",
+    "name": "amena",
+    "email": "amena@gmail.com",
+    "password": "123",
+    "grade": "10",
+    "role": "user"
+  },
+  {
+    "id": "user-1780192921410",
+    "name": "k",
+    "email": "k@gmail.com",
+    "password": "3",
+    "grade": "9",
+    "role": "user"
+  },
+  {
+    "id": "user-1780192994454",
+    "name": "p",
+    "email": "p@gmail.com",
+    "password": "10",
+    "grade": "10",
     "role": "user"
   }
 ]
