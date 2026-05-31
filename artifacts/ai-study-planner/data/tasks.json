@@ -8,5 +8,45 @@
     "difficulty": "Medium",
     "estimatedTime": "30",
     "status": "Pending"
+  },
+  {
+    "id": "task-1780267907819",
+    "userId": "user-1780267339470",
+    "subject": "Math",
+    "title": "homework",
+    "dueDate": "2026-07-23",
+    "difficulty": "Medium",
+    "estimatedTime": "30",
+    "status": "Pending"
+  },
+  {
+    "id": "task-1780267967323",
+    "userId": "user-1780267339470",
+    "subject": "Math",
+    "title": "1",
+    "dueDate": "2026-06-12",
+    "difficulty": "Medium",
+    "estimatedTime": "7",
+    "status": "Pending"
+  },
+  {
+    "id": "task-1780268383248",
+    "userId": "user-1780267339470",
+    "subject": "math",
+    "title": "2",
+    "dueDate": "2026-07-12",
+    "difficulty": "Medium",
+    "estimatedTime": "12",
+    "status": "Pending"
+  },
+  {
+    "id": "task-1780268666635",
+    "userId": "user-1780268562752",
+    "subject": "history",
+    "title": "3",
+    "dueDate": "2027-11-11",
+    "difficulty": "Easy",
+    "estimatedTime": "88",
+    "status": "Pending"
   }
 ]

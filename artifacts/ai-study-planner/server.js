@@ -178,6 +178,12 @@ function writeTasks(tasks) {
   fs.writeFileSync(tasksFilePath, JSON.stringify(tasks, null, 2));
 }
 
+// GET route to fetch all tasks
+app.get("/get-tasks", (req, res) => {
+  const tasks = readTasks();
+  res.status(200).json(tasks);
+});
+
 // POST route to create a new task
 app.post("/create-task", (req, res) => {
   const newTask = req.body;
@@ -185,6 +191,35 @@ app.post("/create-task", (req, res) => {
 
   tasks.push(newTask);
   writeTasks(tasks);
+
+  res.status(200).json({ success: true });
+});
+
+// --- CHECKPOINT #09: NEW ROUTES ---
+// POST route to update a task
+app.post("/update-task", (req, res) => {
+  const updatedTask = req.body;
+  const tasks = readTasks();
+
+  const taskIndex = tasks.findIndex((t) => t.id === updatedTask.id);
+
+  if (taskIndex === -1) {
+    return res.status(404).json({ success: false, message: "Task not found." });
+  }
+
+  tasks[taskIndex] = updatedTask;
+  writeTasks(tasks);
+
+  res.status(200).json({ success: true });
+});
+
+// POST route to delete a task
+app.post("/delete-task", (req, res) => {
+  const { taskId } = req.body;
+  const tasks = readTasks();
+
+  const updatedTasks = tasks.filter((t) => t.id !== taskId);
+  writeTasks(updatedTasks);
 
   res.status(200).json({ success: true });
 });

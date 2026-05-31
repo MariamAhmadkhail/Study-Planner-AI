@@ -118,5 +118,35 @@
     "school": "",
     "goal": "",
     "preferredStudyTime": ""
+  },
+  {
+    "id": "user-1780267339470",
+    "name": "marya",
+    "email": "marya@gmail.com",
+    "password": "1",
+    "grade": "9",
+    "role": "user",
+    "favoriteSubject": "",
+    "weakestSubject": "",
+    "studyHours": "",
+    "learningStyle": "",
+    "school": "",
+    "goal": "",
+    "preferredStudyTime": ""
+  },
+  {
+    "id": "user-1780268562752",
+    "name": "e",
+    "email": "e@gmail.com",
+    "password": "1",
+    "grade": "12",
+    "role": "user",
+    "favoriteSubject": "",
+    "weakestSubject": "",
+    "studyHours": "",
+    "learningStyle": "",
+    "school": "",
+    "goal": "",
+    "preferredStudyTime": ""
   }
 ]
