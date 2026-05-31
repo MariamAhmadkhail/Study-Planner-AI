@@ -1,10 +1,11 @@
 {
   "name": "ai-study-planner",
   "version": "1.0.0",
-  "description": "AI Study Planner Final Project",
-  "main": "server.js",
+  "description": "AI Study Planner - Node.js Express web application",
+  "main": "ai-study-planner/server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "cd ai-study-planner && node server.js",
+    "dev": "cd ai-study-planner && node server.js"
   },
   "dependencies": {
     "express": "^4.22.2"
