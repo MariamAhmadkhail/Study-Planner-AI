@@ -160,6 +160,35 @@ app.post("/update-profile", (req, res) => {
   res.status(200).json({ success: true });
 });
 
+// Path to tasks.json
+const tasksFilePath = path.join(__dirname, "data", "tasks.json");
+
+// Helper function to read tasks from JSON file
+function readTasks() {
+  try {
+    const data = fs.readFileSync(tasksFilePath, "utf8");
+    return JSON.parse(data);
+  } catch (err) {
+    return [];
+  }
+}
+
+// Helper function to write tasks to JSON file
+function writeTasks(tasks) {
+  fs.writeFileSync(tasksFilePath, JSON.stringify(tasks, null, 2));
+}
+
+// POST route to create a new task
+app.post("/create-task", (req, res) => {
+  const newTask = req.body;
+  const tasks = readTasks();
+
+  tasks.push(newTask);
+  writeTasks(tasks);
+
+  res.status(200).json({ success: true });
+});
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

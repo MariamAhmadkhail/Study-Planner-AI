@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "id": "task-1780239479358",
+    "userId": "user-1780239409484",
+    "subject": "Math",
+    "title": "Homework",
+    "dueDate": "2026-06-15",
+    "difficulty": "Medium",
+    "estimatedTime": "30",
+    "status": "Pending"
+  }
+]

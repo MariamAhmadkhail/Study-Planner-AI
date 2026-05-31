@@ -24,36 +24,41 @@
     </nav>
     <div class="container">
       <div class="card">
-        <h2>Create Task</h2>
-        <form action="/create-task" method="POST">
+        <h2>Create New Task</h2>
+        <form id="taskForm">
+          <div class="form-group">
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" required />
+          </div>
           <div class="form-group">
             <label for="title">Task Title:</label>
             <input type="text" id="title" name="title" required />
           </div>
           <div class="form-group">
-            <label for="description">Description:</label>
-            <textarea
-              id="description"
-              name="description"
-              rows="3"
-              required
-            ></textarea>
+            <label for="dueDate">Due Date:</label>
+            <input type="date" id="dueDate" name="dueDate" required />
           </div>
           <div class="form-group">
-            <label for="due-date">Due Date:</label>
-            <input type="date" id="due-date" name="due-date" required />
-          </div>
-          <div class="form-group">
-            <label for="priority">Priority:</label>
-            <select id="priority" name="priority" required>
-              <option value="low">Low</option>
-              <option value="medium">Medium</option>
-              <option value="high">High</option>
+            <label for="difficulty">Difficulty:</label>
+            <select id="difficulty" name="difficulty" required>
+              <option value="Easy">Easy</option>
+              <option value="Medium">Medium</option>
+              <option value="Hard">Hard</option>
             </select>
+          </div>
+          <div class="form-group">
+            <label for="estimatedTime">Estimated Time (minutes):</label>
+            <input
+              type="number"
+              id="estimatedTime"
+              name="estimatedTime"
+              required
+            />
           </div>
           <button type="submit">Create Task</button>
         </form>
       </div>
     </div>
+    <script src="/js/create-task.js"></script>
   </body>
 </html>

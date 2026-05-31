@@ -105,18 +105,18 @@
     "preferredStudyTime": "Morning"
   },
   {
-    "id": "user-1780194744934",
-    "name": "l",
-    "email": "l@gmail.com",
-    "password": "",
+    "id": "user-1780239409484",
+    "name": "t",
+    "email": "t@gmail.com",
+    "password": "1",
     "grade": "12",
     "role": "user",
-    "favoriteSubject": "Math",
-    "weakestSubject": "English",
-    "studyHours": "2",
-    "learningStyle": "Visual",
-    "school": "w",
-    "goal": "haver good grae",
-    "preferredStudyTime": "morning"
+    "favoriteSubject": "",
+    "weakestSubject": "",
+    "studyHours": "",
+    "learningStyle": "",
+    "school": "",
+    "goal": "",
+    "preferredStudyTime": ""
   }
 ]
