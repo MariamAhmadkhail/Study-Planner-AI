@@ -148,5 +148,20 @@
     "school": "",
     "goal": "",
     "preferredStudyTime": ""
+  },
+  {
+    "id": "user-1780282171089",
+    "name": "b",
+    "email": "b@gmail.com",
+    "password": "1",
+    "grade": "12",
+    "role": "user",
+    "favoriteSubject": "",
+    "weakestSubject": "",
+    "studyHours": "",
+    "learningStyle": "",
+    "school": "",
+    "goal": "",
+    "preferredStudyTime": ""
   }
 ]

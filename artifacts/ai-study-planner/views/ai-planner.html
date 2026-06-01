@@ -5,17 +5,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AI Study Planner - AI Planner</title>
     <link rel="stylesheet" href="/css/style.css" />
+    <style>
+      .plan-day {
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        padding: 15px;
+        border-radius: 5px;
+        background: #f9f9f9;
+      }
+      .plan-day h3 {
+        margin-top: 0;
+        color: #222;
+      }
+      .task-item {
+        margin-left: 20px;
+        padding: 10px;
+        background: white;
+        border-radius: 5px;
+        margin-bottom: 10px;
+      }
+      .tips {
+        margin-top: 20px;
+        padding: 15px;
+        background: #e7f3ff;
+        border-radius: 5px;
+      }
+      #loading {
+        display: none;
+        text-align: center;
+        padding: 20px;
+      }
+      .spinner {
+        border: 4px solid rgba(0, 0, 0, 0.1);
+        border-radius: 50%;
+        border-top: 4px solid #222;
+        width: 30px;
+        height: 30px;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 10px;
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      .model-info {
+        font-size: 0.9em;
+        color: #666;
+        margin-top: 10px;
+      }
+    </style>
   </head>
   <body>
     <nav>
       <h1>AI Study Planner</h1>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/register">Register</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/create-task">Create Task</a></li>
+        <li><a href="/edit-task">Edit Task</a></li>
+        <li><a href="/profile">Profile</a></li>
+        <li><a href="/ai-planner">AI Planner</a></li>
+        <li><a href="/admin">Admin</a></li>
+        <li><a href="/checkpoints">Checkpoints</a></li>
+      </ul>
     </nav>
     <div class="container">
       <div class="card">
-        <h2>AI Planner</h2>
-        <p>Let AI generate a personalized study plan for you.</p>
-        <a href="/"><button>Go to Home</button></a>
+        <h2>AI Study Planner</h2>
+        <p>
+          Let <strong>Groq AI</strong> generate a
+          <strong>personalized 7-day study plan</strong> based on your tasks,
+          deadlines, and profile.
+        </p>
+        <p class="model-info">
+          Powered by Groq's Llama 3 model (fast and efficient).
+        </p>
+
+        <div id="loading">
+          <div class="spinner"></div>
+          <p>Generating your personalized study plan with Groq AI...</p>
+        </div>
+
+        <div id="plan-container">
+          <div id="focus-areas"></div>
+          <div id="daily-plans"></div>
+          <div id="tips" class="tips"></div>
+        </div>
+
+        <button id="generate-btn">Generate AI Study Plan</button>
       </div>
     </div>
+    <script src="/js/ai.js"></script>
   </body>
 </html>
